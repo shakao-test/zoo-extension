@@ -1,16 +1,11 @@
 {
-    "name": "zoo-extension",
+    "name": "zoo-extension-activity2",
     "description": "",
     "dependencies": {
         "device": "*"
     },
     "files": [
-        "main.ts",
-        "README.md",
-        "assets.json"
-    ],
-    "testFiles": [
-        "test.ts"
+        "main.ts"
     ],
     "targetVersions": {
         "target": "1.4.28",
