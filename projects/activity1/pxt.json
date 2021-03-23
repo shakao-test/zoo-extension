@@ -1,5 +1,5 @@
 {
-    "name": "zoo-extension-activity1",
+    "name": "zookeeper-hut",
     "description": "",
     "dependencies": {
         "device": "*"
@@ -7,7 +7,9 @@
     "files": [
         "main.ts",
         "tilemap.g.jres",
-        "tilemap.g.ts"
+        "tilemap.g.ts",
+        "images.g.jres",
+        "images.g.ts"
     ],
     "targetVersions": {
         "target": "1.4.28",
