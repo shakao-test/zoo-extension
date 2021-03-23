@@ -1,5 +1,16 @@
 {
     "name": "zoo-extension",
+    "version": "0.0.1",
     "dependencies": {},
-    "files": []
+    "files": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "target": "1.4.28",
+        "targetId": "arcade"
+    },
+    "supportedTargets": [
+        "arcade"
+    ],
+    "preferredEditor": "tsprj"
 }
