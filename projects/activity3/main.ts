@@ -1,5 +1,7 @@
 namespace SpriteKind {
     export const Camera = SpriteKind.create()
+    //% isKind
+    export const Penguin = SpriteKind.create()
 }
 let __camera = sprites.create(image.create(150, 110), SpriteKind.Camera)
 __camera.image.setPixel(0, 0, 4)
