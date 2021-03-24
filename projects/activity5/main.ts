@@ -3,6 +3,8 @@ namespace SpriteKind {
     export const Quail = SpriteKind.create()
     //% isKind
     export const Egg = SpriteKind.create()
+    //% isKind
+    export const Caught = SpriteKind.create()
 }
 sprites.onDestroyed(SpriteKind.Egg, function (sprite) {
     quail = sprites.create(img`
@@ -43,9 +45,9 @@ for (let index = 0; index < randint(3, 5); index++) {
         . . . . . 4 . . . . . . 
         `, SpriteKind.Quail)
     quail.setVelocity(randint(-100, 100), randint(-100, 100))
+    quail.setPosition(randint(10, 150), randint(10, 110))
     quail.setBounceOnWall(true)
     quail.z = 10
-    tiles.placeOnRandomTile(quail, sprites.castle.tilePath5)
 }
 game.onUpdateInterval(2000, function () {
     if (sprites.allOfKind(SpriteKind.Quail).length < 80) {
@@ -63,5 +65,12 @@ game.onUpdateInterval(2000, function () {
             quail_egg.setPosition(value.x, value.y)
             quail_egg.lifespan = randint(2000, 3000)
         }
+    }
+})
+
+scene.onOverlapTile(SpriteKind.Caught, assets.tile`myTile`, function (sprite, location) {
+    sprite.destroy()
+    if (sprites.allOfKind(SpriteKind.Caught).length == 0 && (sprites.allOfKind(SpriteKind.Quail).length == 0 && sprites.allOfKind(SpriteKind.Egg).length == 0)) {
+        game.over(true)
     }
 })
