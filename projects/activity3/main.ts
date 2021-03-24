@@ -11,3 +11,17 @@ __camera.setFlag(SpriteFlag.Invisible, false)
 __camera.setFlag(SpriteFlag.Ghost, true)
 __camera.setFlag(SpriteFlag.StayInScreen, true)
 scene.cameraFollowSprite(__camera)
+
+
+let won = false
+scene.onOverlapTile(SpriteKind.Penguin, assets.tile`tile`, function (sprite, location) {
+    if (!(won)) {
+        won = true
+        timer.after(1000, function () {
+            game.showLongText("Whew! You did it! Thanks for saving the day!", DialogLayout.Bottom)
+            timer.after(1000, function () {
+                game.over(true)
+            })
+        })
+    }
+})
