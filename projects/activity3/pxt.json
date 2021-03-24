@@ -1,5 +1,6 @@
 {
     "name": "zoo-extension-activity3",
+    "version": "0.0.12",
     "description": "",
     "dependencies": {
         "device": "*"
