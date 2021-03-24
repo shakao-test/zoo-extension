@@ -1,6 +1,6 @@
 {
     "name": "zoo-extension",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "dependencies": {},
     "files": [
         "test.ts"
