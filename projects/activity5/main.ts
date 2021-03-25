@@ -51,7 +51,7 @@ game.onUpdateInterval(2000, function () {
     if (sprites.allOfKind(SpriteKind.Quail).length < 80) {
         for (let value of sprites.allOfKind(SpriteKind.Quail)) {
             let following = game.currentScene().followingSprites;
-            if (!following || !following.some(el => el.self == value)) {
+            if (!following || !following.find(el => el && el.self == value)) {
                 quail_egg = sprites.create(img`
                     . . . c c . . . 
                     . . c 1 1 c . . 
