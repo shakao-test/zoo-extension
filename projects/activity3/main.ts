@@ -19,11 +19,9 @@ let won = false
 scene.onOverlapTile(SpriteKind.Penguin, assets.tile`tile`, function (sprite, location) {
     if (!(won)) {
         won = true
-        timer.after(1000, function () {
-            game.showLongText("Whew! You did it! Thanks for saving the day!", DialogLayout.Bottom)
-            timer.after(1000, function () {
-                game.over(true)
-            })
+        control.runInBackground(function() {
+            pause(1500)
+            game.over(true)
         })
     }
 })
