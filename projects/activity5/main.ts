@@ -52,18 +52,21 @@ for (let index = 0; index < randint(3, 5); index++) {
 game.onUpdateInterval(2000, function () {
     if (sprites.allOfKind(SpriteKind.Quail).length < 80) {
         for (let value of sprites.allOfKind(SpriteKind.Quail)) {
-            quail_egg = sprites.create(img`
-                . . . c c . . . 
-                . . c 1 1 c . . 
-                . c b 1 1 b c . 
-                c b 1 1 1 b b c 
-                c 1 1 1 1 1 1 c 
-                c 1 1 b 1 1 1 c 
-                . c 1 1 1 b c . 
-                . . c c c c . . 
-                `, SpriteKind.Egg)
-            quail_egg.setPosition(value.x, value.y)
-            quail_egg.lifespan = randint(2000, 3000)
+            let following = game.currentScene().followingSprites;
+            if (!following || !following.some(el => el.self == value)) {
+                quail_egg = sprites.create(img`
+                    . . . c c . . . 
+                    . . c 1 1 c . . 
+                    . c b 1 1 b c . 
+                    c b 1 1 1 b b c 
+                    c 1 1 1 1 1 1 c 
+                    c 1 1 b 1 1 1 c 
+                    . c 1 1 1 b c . 
+                    . . c c c c . . 
+                    `, SpriteKind.Egg)
+                quail_egg.setPosition(value.x, value.y)
+                quail_egg.lifespan = randint(2000, 3000)
+            }
         }
     }
 })
