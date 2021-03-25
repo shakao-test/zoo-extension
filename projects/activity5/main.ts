@@ -3,8 +3,6 @@ namespace SpriteKind {
     export const Quail = SpriteKind.create()
     //% isKind
     export const Egg = SpriteKind.create()
-    //% isKind
-    export const Caught = SpriteKind.create()
 }
 sprites.onDestroyed(SpriteKind.Egg, function (sprite) {
     quail = sprites.create(img`
@@ -70,10 +68,8 @@ game.onUpdateInterval(2000, function () {
         }
     }
 })
-
-scene.onOverlapTile(SpriteKind.Caught, assets.tile`myTile`, function (sprite, location) {
-    sprite.destroy()
-    if (sprites.allOfKind(SpriteKind.Caught).length == 0 && (sprites.allOfKind(SpriteKind.Quail).length == 0 && sprites.allOfKind(SpriteKind.Egg).length == 0)) {
+game.onUpdate(function() {
+    if (sprites.allOfKind(SpriteKind.Quail).length == 0 && sprites.allOfKind(SpriteKind.Egg).length == 0) {
         game.over(true)
     }
 })
